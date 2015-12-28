@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @poaitem.content %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @poaitem.type %>
+</p>
+
+<%= link_to 'Edit', edit_poaitem_path(@poaitem) %> |
+<%= link_to 'Back', poaitems_path %>

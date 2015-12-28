@@ -1,0 +1,27 @@
+<h1>Listing poas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poas.each do |poa| %>
+      <tr>
+        <td><%= poa.name %></td>
+        <td><%= poa.description %></td>
+        <td><%= link_to 'Show', poa %></td>
+        <td><%= link_to 'Edit', edit_poa_path(poa) %></td>
+        <td><%= link_to 'Destroy', poa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Poa', new_poa_path %>

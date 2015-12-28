@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @poa.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @poa.description %>
+</p>
+
+<%= link_to 'Edit', edit_poa_path(@poa) %> |
+<%= link_to 'Back', poas_path %>
