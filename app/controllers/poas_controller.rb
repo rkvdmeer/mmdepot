@@ -29,7 +29,8 @@ class PoasController < ApplicationController
     respond_to do |format|
       if @poa.save
         format.html { redirect_to @poa, notice: 'Poa was successfully created.' }
-        format.json { render :show, status: :created, location: @poa }
+        # format.json { render :show, status: :created } 
+        format.json { render json: @poa, status: :created }
       else
         format.html { render :new }
         format.json { render json: @poa.errors, status: :unprocessable_entity }
