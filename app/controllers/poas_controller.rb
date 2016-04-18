@@ -5,11 +5,18 @@ class PoasController < ApplicationController
   # GET /poas.json
   def index
     @poas = Poa.all
+
+    respond_to do |format|
+      format.json { render json: @poas, :except => [:created_at, :updated_at], :include => {:tags => {:except => [:created_at, :updated_at]}}}
+    end
   end
 
   # GET /poas/1
   # GET /poas/1.json
   def show
+    respond_to do |format|
+      format.json { render json: @poa, :except => [:created_at, :updated_at], :include => {:tags => {:except => [:created_at, :updated_at]}}}
+    end 
   end
 
   # GET /poas/new
@@ -29,8 +36,7 @@ class PoasController < ApplicationController
     respond_to do |format|
       if @poa.save
         format.html { redirect_to @poa, notice: 'Poa was successfully created.' }
-        # format.json { render :show, status: :created } 
-        format.json { render json: @poa, status: :created }
+        format.json { render :show, status: :created }
       else
         format.html { render :new }
         format.json { render json: @poa.errors, status: :unprocessable_entity }

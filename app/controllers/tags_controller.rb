@@ -10,6 +10,9 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    respond_to do |format|
+      format.json { render json: @tag, :except => [:created_at, :updated_at] }
+    end 
   end
 
   # GET /tags/new
